@@ -6,14 +6,6 @@ Turn Wagtail pages into newsletters.
 [![PyPI version](https://badge.fury.io/py/wagtail-newsletter.svg)](https://badge.fury.io/py/wagtail-newsletter)
 [![Newsletter CI](https://github.com/wagtail/wagtail-newsletter/actions/workflows/test.yml/badge.svg)](https://github.com/wagtail/wagtail-newsletter/actions/workflows/test.yml)
 
-## Links
-
-- [Documentation](https://wagtail-newsletter.readthedocs.io)
-- [Changelog](https://github.com/wagtail/wagtail-newsletter/blob/main/CHANGELOG.md)
-- [Contributing](https://github.com/wagtail/wagtail-newsletter/blob/main/CONTRIBUTING.md)
-- [Discussions](https://github.com/wagtail/wagtail-newsletter/discussions)
-- [Security](https://github.com/wagtail/wagtail-newsletter/security)
-
 ## Supported versions
 
 - Python (3.9, 3.10, 3.11, 3.12)
