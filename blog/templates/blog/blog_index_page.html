@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+<div class="blog-index">
+    <h1 class="blog-title">{{ page.title }}</h1>
+    <div class="blog-intro">{{ page.intro|richtext }}</div>
+
+    <div class="blog-posts">
+        {% for post in page.get_ordered_posts %}
+            <article class="blog-post-card">
+                {% if post.specific.featured_image %}
+                    {% image post.specific.featured_image fill-350x200 class="post-image" %}
+                {% endif %}
+                <div class="post-content">
+                    <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+                    <p class="post-date">{{ post.specific.date }}</p>
+                    <p class="post-intro">{{ post.specific.intro }}</p>
+                    <a href="{% pageurl post %}" class="read-more">Read more →</a>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

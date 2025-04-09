@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+<article class="blog-post">
+    <header class="post-header">
+        {% if page.featured_image %}
+            {% image page.featured_image width-1200 as hero_image %}
+            <img src="{{ hero_image.url }}" alt="{{ hero_image.alt }}" class="featured-image">
+        {% endif %}
+        <h1>{{ page.title }}</h1>
+        <div class="post-meta">
+            <time datetime="{{ page.date|date:'Y-m-d' }}">{{ page.date }}</time>
+        </div>
+    </header>
+
+    <div class="post-intro">
+        {{ page.intro }}
+    </div>
+
+    <div class="post-content">
+        {% for block in page.body %}
+            {% if block.block_type == 'image' %}
+                {% image block.value width-800 as post_image %}
+                <img src="{{ post_image.url }}" alt="{{ post_image.alt }}" class="post-image">
+            {% else %}
+                {{ block }}
+            {% endif %}
+        {% endfor %}
+    </div>
+</article>
+{% endblock %}
