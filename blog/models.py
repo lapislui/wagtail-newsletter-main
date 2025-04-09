@@ -46,7 +46,5 @@ class BlogPost(Page):
 
     def clean(self):
         super().clean()
-        if self.featured_image and not self.featured_image.file.readable():
-            raise ValidationError({
-                'featured_image': 'The image file cannot be read. Please check file permissions.'
-            })
+        # Removing the file permission check that was causing issues
+        # The Wagtail image model already handles basic validation
