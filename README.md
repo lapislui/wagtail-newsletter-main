@@ -1,4 +1,4 @@
-# Wagtail Newsletter
+# Django Wagtail Newsletter
 
 Turn Wagtail pages into newsletters.
 
