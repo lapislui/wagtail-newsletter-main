@@ -48,3 +48,21 @@ class BlogPost(Page):
         super().clean()
         # Removing the file permission check that was causing issues
         # The Wagtail image model already handles basic validation
+
+
+class HomePage(Page):
+    body = RichTextField(blank=True)
+    
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]
+
+    def get_blog_posts(self):
+        # Get blog posts from all child BlogIndexPages
+        blog_index = BlogIndexPage.objects.live().first()
+        if blog_index:
+            return blog_index.get_ordered_posts()[:3]
+        return []
+
+    class Meta:
+        verbose_name = "Homepage"

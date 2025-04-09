@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<div class="homepage">
+    <h1>{{ page.title }}</h1>
+    <div class="welcome-text">
+        {{ page.body|richtext }}
+    </div>
+    
+    <div class="featured-content">
+        <h2>Latest Blog Posts</h2>
+        {% with posts=page.get_blog_posts %}
+            {% if posts %}
+                {% for post in posts %}
+                    <article class="featured-post">
+                        <h3><a href="{% pageurl post %}">{{ post.title }}</a></h3>
+                        <p>{{ post.specific.intro }}</p>
+                    </article>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</div>
+{% endblock %}
